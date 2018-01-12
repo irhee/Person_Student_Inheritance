@@ -1,6 +1,7 @@
 /******************************************************************************
+Need to fix override function.
 pracitce using Vectory, and string header file
-virtual, polimorphism and override function
+virtual, polimorphism
 and dynamic_cast 
 *******************************************************************************/
 #include <iostream>
@@ -15,7 +16,7 @@ class person{
         virtual ~person();
         void setName(string n);
         void setAge(int n);
-        virtual void overWrite();
+        virtual void override();
         string getName() const;
         int getAge() const;
     
@@ -29,8 +30,8 @@ class person{
         person::~person(){
             cout<<"Person Destructor"<<endl;
         }
-        void person::overWrite(){
-            cout<<"This is person overWrite"<<endl;
+        void person::override(){
+            cout<<"This is person override"<<endl;
         }
         void person::setName(string n){
             name = n;
@@ -50,7 +51,7 @@ class student:public person{
         ~student();
         void setSubject(string n);
         void setGrade(int n);
-        void overWrite();
+        void override();
         string getSubject() const;
         int getGrade() const;
     
@@ -64,8 +65,8 @@ class student:public person{
         student::~student(){
             cout<<"Student Destructor"<<endl;
         }
-        void student::overWrite(){
-            cout<<"This is student overWrite"<<endl;
+        void student::override(){
+            cout<<"This is student override"<<endl;
         }
         void student::setSubject(string n){
             subject = n;
@@ -89,15 +90,17 @@ int main()
     p[0]->setAge(10);
     cout<<"Name: "<<p[0]->getName()<<endl;
     cout<<"Age: "<<p[0]->getAge()<<endl;
+    cout<<"OverWrite: "<<p[0]->override()<<endl;
     
     p[1] = new student;    
     p[1]->setName("Sue");
     p[1]->setAge(22);
     student* sp = dynamic_cast<student*> (p[1]);
     sp->setSubject("Calculus");
-    sp->setGrade(80);
+    sp->setGrade(80); 
     cout<<"Name: "<<p[1]->getName()<<endl;
     cout<<"Age: "<<p[1]->getAge()<<endl;
+    cout<<"OverWrite: "<<sp->override()<<endl;
     cout<<"Subject: "<<sp->getSubject()<<endl;
     cout<<"Grade: "<<sp->getGrade()<<endl;
     
