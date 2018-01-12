@@ -2,7 +2,8 @@
 Need to fix override function.
 pracitce using Vectory, and string header file
 virtual, polimorphism
-and dynamic_cast 
+dynamic_cast 
+and operators overloading
 *******************************************************************************/
 #include <iostream>
 #include <string>
@@ -54,7 +55,6 @@ class student:public person{
         virtual void override();
         string getSubject() const;
         int getGrade() const;
-    
     private:
         int grade;
         string subject;
@@ -80,6 +80,14 @@ class student:public person{
         int student::getGrade() const{
             return grade;
         }
+        ostream& operator<< (ostream& out, const student& s){
+            out << "Name: "<< s.getName() << " "
+                << "Age: "<< s.getAge() << " "
+                << "Subject: "<< s.getSubject() << " "
+                << "Grade: "<<s.getGrade() << endl;
+                
+            return out;   
+        }
 int main()
 {
     cout<<"Hello World"<<endl;
@@ -103,6 +111,7 @@ int main()
     sp->override();
     cout<<"Subject: "<<sp->getSubject()<<endl;
     cout<<"Grade: "<<sp->getGrade()<<endl;
+    cout<<*sp;
     
     delete p[0];
     delete p[1];
