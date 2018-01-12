@@ -51,7 +51,7 @@ class student:public person{
         ~student();
         void setSubject(string n);
         void setGrade(int n);
-        void override();
+        virtual void override();
         string getSubject() const;
         int getGrade() const;
     
@@ -90,7 +90,7 @@ int main()
     p[0]->setAge(10);
     cout<<"Name: "<<p[0]->getName()<<endl;
     cout<<"Age: "<<p[0]->getAge()<<endl;
-    cout<<"OverWrite: "<<p[0]->override()<<endl;
+    p[0]->override();
     
     p[1] = new student;    
     p[1]->setName("Sue");
@@ -100,7 +100,7 @@ int main()
     sp->setGrade(80); 
     cout<<"Name: "<<p[1]->getName()<<endl;
     cout<<"Age: "<<p[1]->getAge()<<endl;
-    cout<<"OverWrite: "<<sp->override()<<endl;
+    sp->override();
     cout<<"Subject: "<<sp->getSubject()<<endl;
     cout<<"Grade: "<<sp->getGrade()<<endl;
     
